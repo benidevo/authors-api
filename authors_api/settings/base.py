@@ -32,6 +32,8 @@ THIRD_PARTY_APPS = [
     "django_countries",
     "phonenumber_field",
     "corsheaders",
+    "drf_yasg",
+
 
 ]
 
@@ -148,6 +150,8 @@ CORS_URLS_REGEX = r"^/api/.*$"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = "users.User"
 
 LOGGING = {
     "version": 1,
