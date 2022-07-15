@@ -43,6 +43,9 @@ black-check:
 black-diff:
 	docker compose -f local.yml exec api black --diff --exclude=migrations .
 
+gen-secret-key:
+	python3 -c "import secrets; print(secrets.token_urlsafe(38))"
+
 black:
 	docker compose -f local.yml exec api black --exclude=migrations .
 
