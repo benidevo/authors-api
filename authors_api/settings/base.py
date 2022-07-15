@@ -6,35 +6,33 @@ env = environ.Env()
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 
-APPS_DIR = ROOT_DIR / 'core_apps'
+APPS_DIR = ROOT_DIR / "core_apps"
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DJANGO_DEBUG', default=False)
-
-
+DEBUG = env.bool("DJANGO_DEBUG", False)
 
 
 # Application definition
+
 DJANGO_APPS = [
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.admin',
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.sites",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.admin",
 ]
+
 
 THIRD_PARTY_APPS = [
     "rest_framework",
     "django_filters",
     "django_countries",
     "phonenumber_field",
-    "corsheaders",
     "drf_yasg",
-
-
+    "corsheaders",
 ]
 
 LOCAL_APPS = [
@@ -57,7 +55,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'authors_api.urls'
+ROOT_URLCONF = "authors_api.urls"
 
 TEMPLATES = [
     {
@@ -77,7 +75,9 @@ TEMPLATES = [
         },
     },
 ]
-WSGI_APPLICATION = 'authors_api.wsgi.application'
+
+WSGI_APPLICATION = "authors_api.wsgi.application"
+
 
 DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
@@ -89,21 +89,22 @@ PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
 ]
 
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -111,9 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'Africa/Lagos'
+TIME_ZONE = "Africa/Lagos"
 
 USE_I18N = True
 
@@ -123,7 +124,7 @@ USE_TZ = True
 
 SITE_ID = 1
 
-ADMIN_URL ="superuser/"
+ADMIN_URL = "superuser/"
 
 ADMINS = [("""Benjamin Idewor""", "bidewor@gmail.com")]
 
@@ -133,23 +134,23 @@ MANAGERS = ADMINS
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
-STATIC_ROOT = str(APPS_DIR / "staticfiles")
+STATIC_URL = "/staticfiles/"
+STATIC_ROOT = str(ROOT_DIR / "staticfiles")
 STATICFILES_DIRS = []
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-MEDIA_URL = '/mediafiles/'
-MEDIA_ROOT = str(APPS_DIR / "mediafiles")
-
-CORS_URLS_REGEX = r"^/api/.*$"
-
+MEDIA_URL = "/mediafiles/"
+MEDIA_ROOT = str(ROOT_DIR / "mediafiles")
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+CORS_URLS_REGEX = r"^/api/.*$"
 
 AUTH_USER_MODEL = "users.User"
 
