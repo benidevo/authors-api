@@ -55,8 +55,5 @@ isort-diff:
 isort:
 	docker compose -f local.yml exec api isort . --skip env --skip migrations
 
-
-
-
-
-
+test:
+	export DATABASE_URL=postgres://benidevo:admin123456@localhost:5432/authors_db CELERY_BROKER=redis://redis:6379/0 CELERY_BACKEND=redis://redis:6379/0 SIGNING_KEY=Z75JxFBbQf1FGFz0sGxQOZnh4KDZpVUE5WmuN41Usjbyf3TIrcc EMAIL_PORT=1025 DOMAIN=locahost:8080 CELERY_FLOWER_USER=admin CELERY_FLOWER_PASSWORD=admin123456 && pytest -p no:warnings --cov=. --cov-report html -v
