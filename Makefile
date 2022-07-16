@@ -2,9 +2,6 @@ build:
 	docker compose -f local.yml up --build -d --remove-orphans
 
 up:
-	docker compose -f local.yml up
-
-up-d:
 	docker compose -f local.yml up -d
 
 down:
@@ -18,6 +15,9 @@ migrate:
 
 makemigrations:
 	docker compose -f local.yml run --rm api python3 manage.py makemigrations
+
+rebuild-index:
+	docker compose -f local.yml run --rm api python3 manage.py rebuild_index
 
 collectstatic:
 	docker compose -f local.yml run --rm api python3 manage.py collectstatic --no-input --clear
@@ -42,9 +42,6 @@ black-check:
 
 black-diff:
 	docker compose -f local.yml exec api black --diff --exclude=migrations .
-
-gen-secret-key:
-	python3 -c "import secrets; print(secrets.token_urlsafe(38))"
 
 black:
 	docker compose -f local.yml exec api black --exclude=migrations .
