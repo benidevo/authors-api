@@ -87,4 +87,3 @@ class FollowingSerializer(serializers.ModelSerializer):
             "twitter_handle",
             "following",
         ]
- 

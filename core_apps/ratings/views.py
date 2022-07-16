@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions, status
+from rest_framework import permissions, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
@@ -25,7 +25,7 @@ def create_article_rating_view(request, article_id):
         formatted_response = {"detail": "You can't give a zero rating"}
         return Response(formatted_response, status=status.HTTP_400_BAD_REQUEST)
     else:
-        rating = Rating.objects.create(
+        Rating.objects.create(
             article=article,
             rated_by=request.user,
             value=data["value"],

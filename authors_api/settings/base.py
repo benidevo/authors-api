@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 
 import environ
@@ -10,7 +11,7 @@ APPS_DIR = ROOT_DIR / "core_apps"
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = env.bool("DJANGO_DEBUG", False)
+DEBUG = env.bool("DJANGO_DEBUG", False)
 
 
 # Application definition
@@ -183,7 +184,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-from datetime import timedelta
 
 SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": (

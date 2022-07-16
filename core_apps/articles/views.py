@@ -109,7 +109,7 @@ class ArticleDeleteAPIView(generics.DestroyAPIView):
 
     def delete(self, request, *args, **kwargs):
         try:
-            article = Article.objects.get(slug=self.kwargs.get("slug"))
+            Article.objects.get(slug=self.kwargs.get("slug"))
         except Article.DoesNotExist:
             raise NotFound("That article does not exist in our catalog")
 
